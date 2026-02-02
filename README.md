@@ -13,10 +13,14 @@ Mike Walker
 
 Alexander Yanez
 
-## Daily Schedule app features:
-Different lengths of time for each event, or set events to last all day
-Sortable types of appointments
-Easy Event creation
-Add address to events
+Event Duration and All-Day Events
+This feature lets users choose how long an event lasts by setting a start time and end time, or by marking it as an all-day event. Not every event fits into the same time slot, so this makes scheduling more realistic. All-day events should show separately from timed events so they don’t make the schedule look cluttered. This feature is complete when events can have different lengths, all-day events can be toggled on or off, and the schedule shows the correct times and durations.
+
+Event Categories and Sorting
+This feature allows users to assign a type to each event, such as work, school, personal, or appointment. Users can then filter their schedule to only show certain types of events or sort them in a useful order. This helps keep the schedule organized and easier to read, especially on busy days. This feature is complete when events can be categorized and the schedule correctly updates when filters or sorting options are applied.
+
+Event Location and Description
+This feature adds extra details to events, including a location/address and a short description or notes section. This allows users to store important information directly inside the event instead of remembering it separately. The details should be editable and saved with the event. This feature is complete when the location and description can be added, edited, and still appear correctly after reopening the event.
+
 Get events for specific day
 Add description for events
