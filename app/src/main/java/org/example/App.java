@@ -8,7 +8,25 @@ public class App {
         return "Hello World!";
     }
 
+    public static void alexmethod() {
+        System.out.println("This is Alex's method.");
+    }
+    public static void michealmethod() {
+        System.out.println("This is Micheal's method.");
+    }
+    public static void gilmethod() {
+        System.out.println("This is Gil's method.");
+    }
+    public static void ryleemethod() {
+        System.out.println("This is Rylee's method.");
+    }    
+
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+       // System.out.println(new App().getGreeting());
+        System.out.println("This is a modified main method.");
+        alexmethod();
+        michealmethod();
+        gilmethod();
+        ryleemethod();
     }
 }
