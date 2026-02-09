@@ -1,5 +1,8 @@
 # CS243-Project
 Gil Waite
+Get events for certain day: It wouldn't be a good planner app if you couldn't get what events you had for the day. Likely the most essential part of any planner app, the ability to know what you have going on on any given day is essential for well, planning. By storing dates in a three part address, the month, the day, and the time, it would be easy to quickly retrieve whatever events you have on a given day by finding the address.
+
+Easy Event Creation: Creating events should be easy. All you need is a date and a time. Unfortunately a smooth user experience is harder than you might think to get right.
 
 Rylee Ramirez
 
@@ -21,6 +24,3 @@ This feature allows users to assign a type to each event, such as work, school, 
 
 Event Location and Description
 This feature adds extra details to events, including a location/address and a short description or notes section. This allows users to store important information directly inside the event instead of remembering it separately. The details should be editable and saved with the event. This feature is complete when the location and description can be added, edited, and still appear correctly after reopening the event.
-
-Get events for specific day
-Add description for events
