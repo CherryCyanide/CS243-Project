@@ -3,6 +3,8 @@
  */
 package org.example;
 
+import java.util.*;
+
 public class App {
     public String getGreeting() {
         return "Hello World!";
@@ -11,22 +13,87 @@ public class App {
     public static void alexmethod() {
         System.out.println("This is Alex's method.");
     }
+
     public static void michealmethod() {
         System.out.println("This is Micheal's method.");
     }
+
     public static void gilmethod() {
         System.out.println("This is Gil's method.");
+        Planner planner = new Planner();
+        planner.addEvent(new Event("Office Christmas Party", 12, 23));
+        Scanner input = new Scanner(System.in);
+        eventCreator(input, planner);
+        eventViewer(input, planner);
     }
+
     public static void ryleemethod() {
         System.out.println("This is Rylee's method.");
-    }    
+    }
 
     public static void main(String[] args) {
-       // System.out.println(new App().getGreeting());
+        // System.out.println(new App().getGreeting());
         System.out.println("This is a modified main method.");
         alexmethod();
         michealmethod();
         gilmethod();
         ryleemethod();
+    }
+
+    public static void eventCreator(Scanner input, Planner planner) {
+        System.out.println("Welcome to the event creator, would you like to make an event?");
+        System.out.println("Type Y if you would like to create an event.");
+        System.out.println("Type anything else to skip event creation.");
+        boolean creatingEvents = input.nextLine().toLowerCase().charAt(0) == 'y';
+        while (creatingEvents) {
+            System.out.print("Enter the name of your event: ");
+            String name = input.nextLine();
+
+            System.out.print("Enter the month of your event as a number: ");
+            int month = input.nextInt();
+            input.nextLine();
+
+            System.out.print("Enter the day of your event: ");
+            int day = input.nextInt();
+            input.nextLine();
+
+            Event newEvent = new Event(name, month, day);
+            planner.addEvent(newEvent);
+
+            System.out.println("New event registered: " + newEvent);
+            System.out.println("Would you like to create another event?");
+            System.out.println("Type Y if you would like to create another event.");
+            creatingEvents = input.nextLine().toLowerCase().charAt(0) == 'y';
+        }
+    }
+
+    public static void eventViewer(Scanner input, Planner planner) {
+        System.out.println("Would you like to view any created events?");
+        System.out.println("Type Y if you would like to view events.");
+        Boolean viewingEvents = input.nextLine().toLowerCase().charAt(0) == 'y';
+        while (viewingEvents) {
+            System.out.println("This is a list of all upcoming events:");
+            for (Event event : planner.getAllEvents()) {
+                System.out.println(event);
+            }
+            System.out.print("Type the month of the date you would like to view: ");
+            int month = input.nextInt();
+            input.nextLine();
+            System.out.print("Type the day of the date you would like to view: ");
+            int day = input.nextInt();
+            input.nextLine();
+            ArrayList<Event> eventsList = planner.getEventsForDay(month, day);
+            if (eventsList.size() > 0) {
+                System.out.println("These are the events for that day:");
+                for (Event event : eventsList) {
+                    System.out.println(event);
+                }
+            } else {
+                System.out.println("There are no events for that day.");
+            }
+            System.out.println("Would you like to view another day?");
+            System.out.println("Type Y if you would like to view another day.");
+            viewingEvents = input.nextLine().toLowerCase().charAt(0) == 'y';
+        }
     }
 }
