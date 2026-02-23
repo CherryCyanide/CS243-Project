@@ -4,15 +4,17 @@ public class Event {
     private String name;
     private int month;
     private int day;
+    private String startTime;
 
-    Event(String Name, int Month, int Day) {
+    Event(String Name, int Month, int Day, String StartTime) {
         name = Name;
         month = Month;
         day = Day;
+        startTime = StartTime;
     }
 
     public String toString() {
-        return "\"" + name + "\" on " + month + "/" + day;
+        return "\"" + name + "\" on " + month + "/" + day + " at " + startTime;
     }
 
     public int getMonth() {

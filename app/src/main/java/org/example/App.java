@@ -3,7 +3,8 @@
  */
 package org.example;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class App {
     public String getGreeting() {
@@ -18,18 +19,19 @@ public class App {
         System.out.println("This is Micheal's method.");
     }
 
+    public static void ryleemethod() {
+        System.out.println("This is Rylee's method.");
+    }
+
     public static void gilmethod() {
         System.out.println("This is Gil's method.");
         Planner planner = new Planner();
-        planner.addEvent(new Event("Office Christmas Party", 12, 23));
+        planner.addEvent(new Event("Office Christmas Party", 12, 23, "6:00 PM"));
         Scanner input = new Scanner(System.in);
         eventCreator(input, planner);
         eventViewer(input, planner);
     }
 
-    public static void ryleemethod() {
-        System.out.println("This is Rylee's method.");
-    }
 
     public static void main(String[] args) {
         // System.out.println(new App().getGreeting());
@@ -57,7 +59,10 @@ public class App {
             int day = input.nextInt();
             input.nextLine();
 
-            Event newEvent = new Event(name, month, day);
+            System.out.print("Enter the start time of your event (eg: 0:00 AM/PM): ");
+            String startTime = input.nextLine();
+
+            Event newEvent = new Event(name, month, day, startTime);
             planner.addEvent(newEvent);
 
             System.out.println("New event registered: " + newEvent);
@@ -88,7 +93,6 @@ public class App {
                 for (Event event : eventsList) {
                     System.out.println(event);
                 }
-                // start of rylee's added code
 
                 System.out.println("Would you like to reschedule an event?");
                 System.out.println("Type Y if you would like to move an event to another day.");
@@ -125,7 +129,6 @@ public class App {
                     }
                 }
           
-            // end of rylee's added code
             } else {
                 System.out.println("There are no events for that day.");
             }
