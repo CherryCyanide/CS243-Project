@@ -22,6 +22,11 @@ public class Event {
     public int getDay() {
         return day;
     }
+
+    public void reschedule(int month, int day) {
+        this.month = month;
+        this.day = day;
+    }
 }
 
 // I thought I was going to use this but I didn't :/
