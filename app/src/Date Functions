@@ -2,7 +2,8 @@ File: weekday_1.c
 
 This file contains date assistant functions. Functions include: Determining the day of the week that 
 a given date falls on, Returning the name of a weekday, Returning the name of a month, Returning the 
-3-letter abbreviated name of a day or a month.  
+3-letter abbreviated name of a day or a month. Also, a function to return the corrct suffix for a 
+number, like "st" for "1st", "nd" for "2nd", and so on.  
 
 Included in the source file is a debug test rig that accepts command line arguments and calls all 
 the functions.  Also in the file are instructions and Web links for compiling the code and linking 
