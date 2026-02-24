@@ -40,4 +40,27 @@ public class Planner {
         return date[month - 1][day - 1];
     }
 
+    public boolean rescheduleEvent(Event event, int newMonth, int newDay) {
+        int oldMonth = event.getMonth() - 1;
+        int oldDay = event.getDay() - 1;
+        ArrayList<Event> oldDateEvents = date[oldMonth][oldDay];
+      if (oldDateEvents == null || !oldDateEvents.remove(event)) {
+          return false;
+      }
+
+       if (oldDateEvents.isEmpty()) {
+           date[oldMonth][oldDay] = null;
+        }
+
+        event.reschedule(newMonth, newDay);
+
+        int targetMonth = newMonth - 1;
+        int targetDay = newDay - 1;
+        if (date[targetMonth][targetDay] == null) {
+            date[targetMonth][targetDay] = new ArrayList<Event>();
+        }
+
+        date[targetMonth][targetDay].add(event);
+        return true;
+    }
 }

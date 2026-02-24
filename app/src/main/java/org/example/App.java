@@ -3,7 +3,8 @@
  */
 package org.example;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class App {
     public String getGreeting() {
@@ -18,18 +19,19 @@ public class App {
         System.out.println("This is Micheal's method.");
     }
 
+    public static void ryleemethod() {
+        System.out.println("This is Rylee's method.");
+    }
+
     public static void gilmethod() {
         System.out.println("This is Gil's method.");
         Planner planner = new Planner();
-        planner.addEvent(new Event("Office Christmas Party", 12, 23));
+        planner.addEvent(new Event("Office Christmas Party", 12, 23, "6:00 PM"));
         Scanner input = new Scanner(System.in);
         eventCreator(input, planner);
         eventViewer(input, planner);
     }
 
-    public static void ryleemethod() {
-        System.out.println("This is Rylee's method.");
-    }
 
     public static void main(String[] args) {
         // System.out.println(new App().getGreeting());
@@ -57,7 +59,10 @@ public class App {
             int day = input.nextInt();
             input.nextLine();
 
-            Event newEvent = new Event(name, month, day);
+            System.out.print("Enter the start time of your event (eg: 0:00 AM/PM): ");
+            String startTime = input.nextLine();
+
+            Event newEvent = new Event(name, month, day, startTime);
             planner.addEvent(newEvent);
 
             System.out.println("New event registered: " + newEvent);
@@ -88,6 +93,42 @@ public class App {
                 for (Event event : eventsList) {
                     System.out.println(event);
                 }
+
+                System.out.println("Would you like to reschedule an event?");
+                System.out.println("Type Y if you would like to move an event to another day.");
+                boolean reschedule = input.nextLine().toLowerCase().charAt(0) == 'y';
+
+                if (reschedule) {
+                    for (int i = 0; i < eventsList.size(); i++) {
+                        System.out.println((i + 1) + ". " + eventsList.get(i));
+                    }
+
+                    System.out.print("Enter the number of the event to move: ");
+                    int eventNumber = input.nextInt();
+                    input.nextLine();
+
+                    if (eventNumber >= 1 && eventNumber <= eventsList.size()) {
+                        Event selectedEvent = eventsList.get(eventNumber - 1);
+
+                        System.out.print("Enter the new month: ");
+                        int newMonth = input.nextInt();
+                        input.nextLine();
+
+                        System.out.print("Enter the new day: ");
+                        int newDay = input.nextInt();
+                        input.nextLine();
+
+                        boolean moved = planner.rescheduleEvent(selectedEvent, newMonth, newDay);
+                        if (moved) {
+                            System.out.println("Event rescheduled: " + selectedEvent);
+                        } else {
+                            System.out.println("Unable to reschedule that event.");
+                        }
+                    } else {
+                        System.out.println("Invalid event number.");
+                    }
+                }
+          
             } else {
                 System.out.println("There are no events for that day.");
             }
