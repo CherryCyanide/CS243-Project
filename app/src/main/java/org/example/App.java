@@ -12,8 +12,9 @@ public class App {
     }
 
     public static void alexmethod() {
-        System.out.println("This is Alex's method.");
-    }
+    System.out.println("This is Alex's method.");
+    System.out.println("Alex non-conflicting change #1");
+}
 
     public static void michealmethod() {
         System.out.println("This is Micheal's method.");
@@ -38,7 +39,14 @@ public class App {
         System.out.println("This is a modified main method.");
         alexmethod();
         michealmethod();
-        gilmethod();
+
+        // Only run the interactive planner if we explicitly ask for it
+            if (args.length > 0 && args[0].equalsIgnoreCase("interactive")) {
+         gilmethod();
+            } else {
+                 System.out.println("(Skipping interactive planner - run with: ./gradlew run --args=\"interactive\")");
+        }
+
         ryleemethod();
     }
 
