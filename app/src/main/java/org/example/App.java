@@ -9,8 +9,8 @@ public class App {
     }
 
     public static void alexmethod() {
-        System.out.println("This is Alex's method.");
-    }
+    AlexEventDetails.run();
+}
     public static void michealmethod() {
         System.out.println("This is Micheal's method.");
     }
