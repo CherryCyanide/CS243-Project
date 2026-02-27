@@ -36,13 +36,19 @@ public class App {
 
 
     public static void main(String[] args) {
-        // System.out.println(new App().getGreeting());
-        System.out.println("This is a modified main method.");
-        alexmethod();
-        michealmethod();
+    System.out.println("This is a modified main method.");
+    alexmethod();
+    michealmethod();
+
+    // Only run the interactive planner if we explicitly ask for it
+    if (args.length > 0 && args[0].equalsIgnoreCase("interactive")) {
         gilmethod();
-        ryleemethod();
+    } else {
+        System.out.println("(Skipping interactive planner - run with: ./gradlew run --args=\"interactive\")");
     }
+
+    ryleemethod();
+}
 
     public static void eventCreator(Scanner input, Planner planner) {
         System.out.println("Welcome to the event creator, would you like to make an event?");
