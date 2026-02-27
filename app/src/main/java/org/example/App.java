@@ -12,8 +12,10 @@ public class App {
     }
 
     public static void alexmethod() {
-        System.out.println("This is Alex's method.");
-    }
+    System.out.println("This is Alex's method.");
+    System.out.println("Alex non-conflicting change #1");
+    System.out.println("Alex non-conflicting change #2");
+}
 
     public static void michealmethod() {
         System.out.println("This is Micheal's method.");
